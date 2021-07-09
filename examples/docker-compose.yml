@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  
+  memcached-app:
+    image: ryanwclark/memcached
+    container_name: memcached-app
+    environment: 
+      - ZABBIX_HOSTNAME=memcached-app
+    networks:
+    - internal
+    - services
+    restart: always
+
+networks:
+  internal:
+    external: false
+  services:
+    external: true
+
+
